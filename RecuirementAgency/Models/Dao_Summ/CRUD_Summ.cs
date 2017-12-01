@@ -89,7 +89,7 @@ namespace RecuirementAgency.Models.Dao_Summ
             while (sdr.Read())
             {
                 Experience exp = new Experience();
-                exp.countOfMonths = sdr.GetInt32(1);
+                exp.countOfMonths =  sdr.GetInt32(1);
                 exp.profession = sdr.GetString(0);
                 item.experience.Add(exp);
             }

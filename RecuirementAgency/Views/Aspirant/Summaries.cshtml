@@ -47,7 +47,7 @@
             @Html.DisplayFor(modelItem => item.info)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Редактировать", "Edit_Summ", "Aspirant", new { id=item.id }, null) |
             @Html.ActionLink("Подробнее", "Details_Summ", "Aspirant", new { id=item.id }, null) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id })
         </td>

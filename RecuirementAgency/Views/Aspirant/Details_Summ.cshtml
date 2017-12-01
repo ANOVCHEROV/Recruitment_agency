@@ -65,16 +65,28 @@
     @Html.DisplayNameFor(model => model.experience)
 </dt>
 <table class="table">
+    <tr>
+        <td>
+            Профессия
+        </td>
+        <td>
+            Число отработанных месяцев
+        </td>
+    </tr>
     @foreach (var item in Model.experience)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item)
+                @Html.DisplayFor(modelItem => item.profession)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.countOfMonths)
             </td>
         </tr>
     }
 </table>
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit_Summ", "Aspirant", new { id = Model.id }, null) |
+    @Html.ActionLink("Назад к списку", "Summaries", "Aspirant")
 </p>

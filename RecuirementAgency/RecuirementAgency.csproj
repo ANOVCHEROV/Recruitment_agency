@@ -268,6 +268,7 @@
     <Content Include="Views\AllSummaries.cshtml" />
     <Content Include="Views\Aspirant\Summaries.cshtml" />
     <Content Include="Views\Aspirant\Details_Summ.cshtml" />
+    <Content Include="Views\Aspirant\Edit_Summ.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

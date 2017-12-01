@@ -19,5 +19,9 @@ namespace RecuirementAgency.Controllers
         {
             return View(summ.Get_Summ(id));
         }
+        public ActionResult Edit_Summ(int id)
+        {
+            return View(summ.Get_Summ(id));
+        }
     }
 }
