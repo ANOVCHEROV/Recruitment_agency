@@ -12,7 +12,7 @@ namespace RecuirementAgency.Models.Dao_Summ
         public string name { get; set; }
         public int age { get; set; }
         public int idOfAuthor { get; set; }
-        public DateTime date { get; set; }
+        public string date { get; set; }
         public string info { get; set; }
         public List<string> professions = new List<string>();
         public List<Experience> experience = new List<Experience>();

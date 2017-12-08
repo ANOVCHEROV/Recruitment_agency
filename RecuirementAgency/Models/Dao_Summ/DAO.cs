@@ -8,7 +8,7 @@ namespace RecuirementAgency.Models.Dao_Summ
 {
     public class DAO
     {
-        public SqlConnection getConnection()
+        public static SqlConnection getConnection()
         {
             string connectionString = @"Data Source=LOCALHOST\SQLEXPRESS;
                 Initial Catalog=RecAgency;
@@ -18,7 +18,7 @@ namespace RecuirementAgency.Models.Dao_Summ
             connection.Open();
             return connection;
         }
-        public void closeConnection(SqlConnection con)
+        public static void closeConnection(SqlConnection con)
         {
             con.Close();
         }

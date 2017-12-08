@@ -24,7 +24,7 @@ namespace RecuirementAgency.Models.Dao_Summ
                 item.name = dr.GetString(1);
                 item.age = dr.GetInt32(2);
                 item.idOfAuthor = dr.GetInt32(3);
-                item.date = dr.GetDateTime(4).Date;
+                item.date = dr.GetDateTime(4).Date.ToString();
                 item.info = dr.GetString(5);
                 SqlCommand scmd = new SqlCommand("Select p.Name from " +
                     "Professions as p join Education as e on p.id=e.IdOfProfession where e.IdOfSummary=@id", connection);
@@ -69,7 +69,7 @@ namespace RecuirementAgency.Models.Dao_Summ
                 item.name = dr.GetString(1);
                 item.age = dr.GetInt32(2);
                 item.idOfAuthor = dr.GetInt32(3);
-                item.date = dr.GetDateTime(4).Date;
+                item.date = dr.GetDateTime(4).Date.ToString();
                 item.info = dr.GetString(5);
             }
             SqlCommand scmd = new SqlCommand("Select p.Name from " +
@@ -97,6 +97,19 @@ namespace RecuirementAgency.Models.Dao_Summ
             closeConnection(connection);
             return item;
 
+        }
+        public bool Create_Summ(VO_Summ item)
+        {
+            SqlConnection connection = getConnection();
+            SqlCommand sq = new SqlCommand("insert into Summaries (Name, Age, IdOfAuthor, DateOfPublication, Info)" +
+                "values (@Name, @Age, @IdOfAuthor, @DateOfPublication, @Info)", connection);
+            sq.Parameters.AddWithValue("@Name", item.name);
+            sq.Parameters.AddWithValue("@IdOfAuthor", item.idOfAuthor);
+            sq.Parameters.AddWithValue("@Age", item.age);
+            sq.Parameters.AddWithValue("@DateOfPublication",item.date);
+            sq.Parameters.AddWithValue("@Info", item.info);
+            sq.ExecuteNonQuery();
+            return true;
         }
     }
 }
