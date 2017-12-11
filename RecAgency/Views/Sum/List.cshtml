@@ -1,0 +1,74 @@
+﻿@model IEnumerable<RecAgency.Models.Summary>
+
+@{
+    ViewBag.Title = "Список резюме";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Создать резюме", "Create", "Sum")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FIO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatePublication)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseProfession)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FIO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Experience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatePublication)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+                @if (item.Sex)
+                {
+                    @Html.Raw("М");
+                }
+                else
+                {
+                    @Html.Raw("Ж");
+                }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaseProfession)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", "Sum",  new { id=item.Id }) |
+            @Html.ActionLink("Детали", "Details", "Sum",  new { id=item.Id }) |
+            @Html.ActionLink("Удалить", "Delete", "Sum", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("К стартовой странице", "Index", "Home")
+</div>
