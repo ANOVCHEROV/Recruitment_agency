@@ -3,38 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RecAgency.Models;
 
 namespace RecAgency.Controllers
 {
     public class VacController : Controller
     {
+        CRUD_Vacancy crud = new CRUD_Vacancy();
         // GET: Vac
-        public ActionResult Index()
+        public ActionResult List()
         {
-            return View();
+            return View(crud.getAllContacts());
         }
 
         // GET: Vac/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(crud.getContact(id));
         }
 
-        // GET: Vac/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Vac/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Vacancy contact)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                contact.DateOfPublication = DateTime.Now;
+                contact.IdOfAuthor = 1;
+                //contact.IdOfAuthor = Int32.Parse(User.Identity.GetUserId());
+                int i = crud.addContact(contact);
+                return RedirectToAction("Details", new { id = i });
             }
             catch
             {
@@ -45,18 +47,19 @@ namespace RecAgency.Controllers
         // GET: Vac/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(crud.getContact(id));
         }
 
         // POST: Vac/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Vacancy contact)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                contact.DateOfPublication = DateTime.Now;
+                crud.updateContact(contact);
+                int i = contact.Id;
+                return RedirectToAction("Details", new { id = i });
             }
             catch
             {
@@ -64,21 +67,18 @@ namespace RecAgency.Controllers
             }
         }
 
-        // GET: Vac/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(crud.getContact(id));
         }
 
-        // POST: Vac/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                crud.removeContact(id);
+                return RedirectToAction("List");
             }
             catch
             {

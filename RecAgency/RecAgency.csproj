@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SumController.cs" />
     <Compile Include="Controllers\VacController.cs" />
+    <Compile Include="Controllers\прпрController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -338,10 +339,15 @@
     <Content Include="Views\Sum\Delete.cshtml" />
     <Content Include="Views\Sum\List.cshtml" />
     <Content Include="Views\Sum\Edit.cshtml" />
+    <Content Include="Views\Vac\Create.cshtml" />
+    <Content Include="Views\Vac\Delete.cshtml" />
+    <Content Include="Views\Vac\Details.cshtml" />
+    <Content Include="Views\Vac\Edit.cshtml" />
+    <Content Include="Views\Vac\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Vac\" />
+    <Folder Include="Views\прпр\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

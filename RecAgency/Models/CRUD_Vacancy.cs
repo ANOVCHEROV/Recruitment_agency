@@ -7,7 +7,7 @@ namespace RecAgency.Models
 {
     public class CRUD_Vacancy
     {
-        private RAEntities1 _entities = new RAEntities1();
+        private RAEntities2 _entities = new RAEntities2();
 
         public IEnumerable<Vacancy> getAllContacts()
         {
@@ -30,8 +30,9 @@ namespace RecAgency.Models
                 _entities.SaveChanges();
                 return contact.Id;
             }
-            catch
+            catch (Exception ex)
             {
+                Console.WriteLine("!!!!!!" + ex.Message);
                 return 0;
             }
         }

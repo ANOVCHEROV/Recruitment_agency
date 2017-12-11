@@ -1,0 +1,87 @@
+﻿@model RecAgency.Models.Vacancy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vacancy</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Field)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Field)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schedule)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schedule)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfPublication)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfPublication)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", "Vac", new { id = Model.Id }, null)
+    <div>
+        @Html.ActionLink("Назад к списку вакасий", "List", "Vac")
+    </div>
+    <div>
+        @Html.ActionLink("К стартовой странице", "Index", "Home")
+    </div>
+</p>

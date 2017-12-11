@@ -1,0 +1,60 @@
+﻿@model IEnumerable<RecAgency.Models.Vacancy>
+
+@{
+    ViewBag.Title = "Вакансии";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Создать вакансию", "Create", "Vac")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Schedule)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfPublication)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schedule)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Experience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfPublication)
+        </td>
+        <td>
+            @Html.ActionLink("Редактировать", "Edit", "Vac", new { id=item.Id }, null) |
+            @Html.ActionLink("Детали", "Details", "Vac", new { id=item.Id }, null) |
+            @Html.ActionLink("Удалить", "Delete", "Vac", new { id=item.Id }, null)
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("К стартовой странице", "Index", "Home")
+</div>
