@@ -21,7 +21,7 @@ namespace RecAgency.Models
                     where c.Id == id
                     select c).First();
         }
-
+        
         public int addContact(Summary contact)
         {
             try

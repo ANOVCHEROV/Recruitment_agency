@@ -139,7 +139,8 @@ namespace RecAgency.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            var r = new RegisterViewModel();
+            return View(r);
         }
 
         //
@@ -156,7 +157,7 @@ namespace RecAgency.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await UserManager.AddToRoleAsync(user.Id, model.SelectedRoleId);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Отправка сообщения электронной почты с этой ссылкой
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

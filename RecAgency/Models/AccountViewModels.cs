@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace RecAgency.Models
 {
@@ -77,9 +78,34 @@ namespace RecAgency.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Подтверждение пароля")]
-        [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
+
+        public List<Roles> rols = new List<Roles>();
+        
+        [Display(Name = "Roles")]
+        public string SelectedRoleId { get; set; }
+
+        public IEnumerable<SelectListItem> RoleItems
+        {
+            get {
+                rols.Add(new Roles("Aspirant", "Aspirant"));
+                rols.Add(new Roles("Employer", "Employer"));
+                return new SelectList(rols, "Name", "Id"); }
+        }
     }
+    public class Roles
+    {
+        public Roles(string a, string b)
+        {
+            Id = a;
+            Name = b;
+        }
+
+        public string Id { get; set; }
+        public string Name { get; set; }
+    }
+
 
     public class ResetPasswordViewModel
     {
@@ -96,7 +122,7 @@ namespace RecAgency.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Подтверждение пароля")]
-        [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
+        [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

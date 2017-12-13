@@ -30,6 +30,12 @@
         </div>
     </div>
     <div class="form-group">
+        Кто вы?
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.SelectedRoleId, Model.RoleItems)
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Регистрация" />
         </div>
