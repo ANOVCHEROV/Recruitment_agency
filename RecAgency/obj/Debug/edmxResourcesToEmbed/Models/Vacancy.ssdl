@@ -6,7 +6,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="IdOfAuthor" Type="int" Nullable="false" />
+    <Property Name="IdOfAuthor" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Field" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Schedule" Type="nvarchar" MaxLength="25" Nullable="false" />
     <Property Name="Experience" Type="int" Nullable="false" />

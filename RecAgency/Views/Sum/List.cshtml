@@ -1,13 +1,21 @@
 ﻿@model IEnumerable<RecAgency.Models.Summary>
-
+@using System.Web.Security;
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Список резюме";
 }
 
-<h2>List</h2>
+<h2>Резюме</h2>
 
 <p>
-    @Html.ActionLink("Создать резюме", "Create", "Sum")
+    @if (User.IsInRole("Aspirant"))
+    {
+        @Html.ActionLink("Создать резюме", "Create", "Sum")        <br />
+        @Html.ActionLink("Показать мои вакансии", "List", "Sum", new { id = User.Identity.GetUserId()}, null)
+        @Html.Raw(" | ")
+        @Html.ActionLink("Показать мои вакансии", "List", "Sum", new { id = "" }, null)
+    }
+
 </p>
 <table class="table">
     <tr>
@@ -61,9 +69,7 @@
             @Html.DisplayFor(modelItem => item.BaseProfession)
         </td>
         <td>
-            @Html.ActionLink("Редактировать", "Edit", "Sum",  new { id=item.Id }, null) |
             @Html.ActionLink("Детали", "Details", "Sum",  new { id=item.Id }, null) |
-            @Html.ActionLink("Удалить", "Delete", "Sum", new { id=item.Id }, null)
         </td>
     </tr>
 }

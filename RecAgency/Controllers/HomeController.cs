@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RecAgency.Models;
 
 namespace RecAgency.Controllers
 {
@@ -25,6 +26,12 @@ namespace RecAgency.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult Error(string error)
+        {
+            var er = new Error();
+            er.textError = error;
+            return View(er);
         }
     }
 }

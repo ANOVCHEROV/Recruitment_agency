@@ -21,7 +21,14 @@ namespace RecAgency.Models
                     where c.Id == id
                     select c).First();
         }
-        
+
+        public IEnumerable<Summary> getContactOnUser(string id)
+        {
+            return (from c in _entities.Summary
+                    where c.IdOfAuthor == id
+                    select c);
+        }
+
         public int addContact(Summary contact)
         {
             try

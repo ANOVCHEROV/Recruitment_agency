@@ -12,9 +12,16 @@ namespace RecAgency.Controllers
     {
         CRUD_Vacancy crud = new CRUD_Vacancy();
         // GET: Vac
-        public ActionResult List()
+        public ActionResult List(string id = "")
         {
-            return View(crud.getAllContacts());
+            if (id == "")
+            {
+                return View(crud.getAllContacts());
+            }
+            else
+            {
+                return View(crud.getContactOnAuthor(id));
+            }
         }
 
         // GET: Vac/Details/5
@@ -22,14 +29,14 @@ namespace RecAgency.Controllers
         {
             return View(crud.getContact(id));
         }
-        [Authorize(Roles = "Aspirant")]
+        [Authorize(Roles = "Employer")]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles = "Aspirant")]
+        [Authorize(Roles = "Employer")]
         public ActionResult Create(Vacancy contact)
         {
             try
@@ -46,7 +53,7 @@ namespace RecAgency.Controllers
         }
 
         // GET: Vac/Edit/5
-        [Authorize(Roles = "Aspirant")]
+        [Authorize(Roles = "Employer")]
         public ActionResult Edit(int id)
         {
             var contact = crud.getContact(id);
@@ -54,12 +61,12 @@ namespace RecAgency.Controllers
             {
                 return View(contact);
             }
-            return RedirectToAction("Error");
+            return RedirectToAction("Error", "Home", new { error="Запрещено редактировать вакансии других работдателей"});
         }
 
         // POST: Vac/Edit/5
         [HttpPost]
-        [Authorize(Roles = "Aspirant")]
+        [Authorize(Roles = "Employer")]
         public ActionResult Edit(Vacancy contact)
         {
             try
@@ -74,14 +81,14 @@ namespace RecAgency.Controllers
                 return View();
             }
         }
-        [Authorize(Roles = "Aspirant")]
+        [Authorize(Roles = "Employer")]
         public ActionResult Delete(int id)
         {
             return View(crud.getContact(id));
         }
 
         [HttpPost]
-        [Authorize(Roles = "Aspirant")]
+        [Authorize(Roles = "Employer")]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

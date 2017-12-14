@@ -22,6 +22,13 @@ namespace RecAgency.Models
                     select c).First();
         }
 
+        public IEnumerable<Vacancy> getContactOnAuthor(string id)
+        {
+            return (from c in _entities.Vacancy
+                    where c.IdOfAuthor == id
+                    select c);
+        }
+
         public int addContact(Vacancy contact)
         {
             try

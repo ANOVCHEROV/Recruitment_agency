@@ -11,9 +11,16 @@ namespace RecAgency.Controllers
     public class SumController : Controller
     {
         CRUD_Summary crud = new CRUD_Summary();
-        public ActionResult List()
+        public ActionResult List(string id = "")
         {
-            return View(crud.getAllContacts());
+            if (id == "")
+            {
+                return View(crud.getAllContacts());
+            }
+            else
+            {
+                return View(crud.getContactOnUser(id));
+            }
         }
         public ActionResult Details(int id)
         {

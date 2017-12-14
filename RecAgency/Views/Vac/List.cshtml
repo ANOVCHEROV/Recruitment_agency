@@ -1,13 +1,22 @@
 ﻿@model IEnumerable<RecAgency.Models.Vacancy>
-
+@using Microsoft.AspNet.Identity;
+@using System.Web.Security;
 @{
     ViewBag.Title = "Вакансии";
 }
 
-<h2>List</h2>
+<h2>Вакансии</h2>
 
 <p>
-    @Html.ActionLink("Создать вакансию", "Create", "Vac")
+    @if (User.IsInRole("Employer"))
+    {
+        @Html.ActionLink("Создать вакансию", "Create", "Vac") <br />
+        @Html.ActionLink("Показать все вакансии", "List", "Vac", new { id = "" }, null) 
+        @Html.Raw(" | ")
+        @Html.ActionLink("Показать мои вакансии", "List", "Vac", new { id = User.Identity.GetUserId() }, null)
+    }
+
+
 </p>
 <table class="table">
     <tr>
@@ -47,9 +56,7 @@
             @Html.DisplayFor(modelItem => item.DateOfPublication)
         </td>
         <td>
-            @Html.ActionLink("Редактировать", "Edit", "Vac", new { id=item.Id }, null) |
-            @Html.ActionLink("Детали", "Details", "Vac", new { id=item.Id }, null) |
-            @Html.ActionLink("Удалить", "Delete", "Vac", new { id=item.Id }, null)
+            @Html.ActionLink("Детали", "Details", "Vac", new { id=item.Id }, null) 
         </td>
     </tr>
 }
