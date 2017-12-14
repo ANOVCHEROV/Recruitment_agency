@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using RecAgency.Models;
+using Microsoft.AspNet.Identity;
 
 namespace RecAgency.Controllers
 {
@@ -21,20 +22,20 @@ namespace RecAgency.Controllers
         {
             return View(crud.getContact(id));
         }
-
+        [Authorize(Roles = "Aspirant")]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Aspirant")]
         public ActionResult Create(Vacancy contact)
         {
             try
             {
                 contact.DateOfPublication = DateTime.Now;
-                contact.IdOfAuthor = 1;
-                //contact.IdOfAuthor = Int32.Parse(User.Identity.GetUserId());
+                contact.IdOfAuthor = User.Identity.GetUserId();
                 int i = crud.addContact(contact);
                 return RedirectToAction("Details", new { id = i });
             }
@@ -45,13 +46,20 @@ namespace RecAgency.Controllers
         }
 
         // GET: Vac/Edit/5
+        [Authorize(Roles = "Aspirant")]
         public ActionResult Edit(int id)
         {
-            return View(crud.getContact(id));
+            var contact = crud.getContact(id);
+            if (contact.IdOfAuthor == User.Identity.GetUserId())
+            {
+                return View(contact);
+            }
+            return RedirectToAction("Error");
         }
 
         // POST: Vac/Edit/5
         [HttpPost]
+        [Authorize(Roles = "Aspirant")]
         public ActionResult Edit(Vacancy contact)
         {
             try
@@ -66,13 +74,14 @@ namespace RecAgency.Controllers
                 return View();
             }
         }
-
+        [Authorize(Roles = "Aspirant")]
         public ActionResult Delete(int id)
         {
             return View(crud.getContact(id));
         }
 
         [HttpPost]
+        [Authorize(Roles = "Aspirant")]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

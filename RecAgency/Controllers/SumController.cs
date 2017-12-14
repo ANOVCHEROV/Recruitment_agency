@@ -31,8 +31,7 @@ namespace RecAgency.Controllers
             try
             {
                 contact.DatePublication = DateTime.Now;
-                //contact.IdOfAuthor = Int32.Parse(User.Identity.GetUserId());
-                contact.IdOfAuthor = 1;
+                contact.IdOfAuthor = User.Identity.GetUserId();
                 int i = crud.addContact(contact);
                 
                 return RedirectToAction("Details", new { id = i });

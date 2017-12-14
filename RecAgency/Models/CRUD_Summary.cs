@@ -7,7 +7,7 @@ namespace RecAgency.Models
 {
     public class CRUD_Summary
     {
-        private RAEntities _entities = new RAEntities();
+        private RAEntities3 _entities = new RAEntities3();
 
         public IEnumerable<Summary> getAllContacts()
         {

@@ -10,7 +10,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdOfAuthor" Type="int" Nullable="false" />
+          <Property Name="IdOfAuthor" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FIO" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Info" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Experience" Type="int" Nullable="false" />
@@ -32,7 +32,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdOfAuthor" Type="Int32" Nullable="false" />
+          <Property Name="IdOfAuthor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Experience" Type="Int32" Nullable="false" />
@@ -41,7 +41,7 @@
           <Property Name="Sex" Type="Boolean" Nullable="false" />
           <Property Name="BaseProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="RAEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RAEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Summary" EntityType="Self.Summary" />
         </EntityContainer>
       </Schema>
@@ -49,7 +49,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище RAModelContainer" CdmEntityContainer="RAEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RAModelContainer" CdmEntityContainer="RAEntities3">
           <EntitySetMapping Name="Summary">
             <EntityTypeMapping TypeName="RAModel.Summary">
               <MappingFragment StoreEntitySet="Summary">

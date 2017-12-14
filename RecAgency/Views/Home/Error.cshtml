@@ -1,0 +1,26 @@
+﻿@model RecAgency.Models.Error
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Error</h2>
+
+<div>
+    <h4>Error</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.textError)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.textError)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -16,7 +16,7 @@ namespace RecAgency.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int IdOfAuthor { get; set; }
+        public string IdOfAuthor { get; set; }
         public string Field { get; set; }
         public string Schedule { get; set; }
         public int Experience { get; set; }

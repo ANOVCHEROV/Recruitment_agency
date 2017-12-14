@@ -13,10 +13,10 @@ namespace RecAgency.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RAEntities : DbContext
+    public partial class RAEntities3 : DbContext
     {
-        public RAEntities()
-            : base("name=RAEntities")
+        public RAEntities3()
+            : base("name=RAEntities3")
         {
         }
     

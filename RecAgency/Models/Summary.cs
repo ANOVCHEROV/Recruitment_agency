@@ -15,7 +15,7 @@ namespace RecAgency.Models
     public partial class Summary
     {
         public int Id { get; set; }
-        public int IdOfAuthor { get; set; }
+        public string IdOfAuthor { get; set; }
         public string FIO { get; set; }
         public string Info { get; set; }
         public int Experience { get; set; }
