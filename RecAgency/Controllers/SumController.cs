@@ -22,31 +22,32 @@ namespace RecAgency.Controllers
                 return View(crud.getContactOnUser(id));
             }
         }
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View(crud.getContact(id));
+            var r = crud.getContactOnUser(id);
+            if (r != null)
+            {
+                return View(r);
+            }
+            else
+            {
+                return RedirectToAction("Create");
+            }
+            
         }
-   
+
         public ActionResult Create()
         {
-            return View();
+                return View();
         }
 
         [HttpPost]
         public ActionResult Create(Summary contact)
         {
-            try
-            {
                 contact.DatePublication = DateTime.Now;
                 contact.IdOfAuthor = User.Identity.GetUserId();
-                int i = crud.addContact(contact);
-                
-                return RedirectToAction("Details", new { id = i });
-            }
-            catch
-            {
-                return View();
-            }
+                crud.addContact(contact);            
+                return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
         }
 
         // GET: Sum/Edit/5
@@ -59,22 +60,22 @@ namespace RecAgency.Controllers
         [HttpPost]
         public ActionResult Edit(Summary contact)
         {
-            try
+            contact.DatePublication = DateTime.Now;
+            contact.IdOfAuthor = User.Identity.GetUserId();
+            if (crud.updateContact(contact))
             {
-                contact.DatePublication = DateTime.Now;
-                crud.updateContact(contact);
-                int i = contact.Id;
-                return RedirectToAction("Details", new { id = i });
+                return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
             }
-            catch
+            else
             {
-                return View();
+                return RedirectToAction("Error", "Home", new { error = contact.IdOfAuthor});
             }
+                
         }
 
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(crud.getContact(id));
         }
 
         [HttpPost]
@@ -83,7 +84,7 @@ namespace RecAgency.Controllers
             try
             {
                 crud.removeContact(id);
-                return RedirectToAction("List");
+                return RedirectToAction("Index", "Home");
             }
             catch
             {

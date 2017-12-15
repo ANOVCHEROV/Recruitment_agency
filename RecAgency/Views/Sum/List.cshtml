@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<RecAgency.Models.Summary>
 @using System.Web.Security;
 @using Microsoft.AspNet.Identity;
+@using RecAgency.Models;
 @{
     ViewBag.Title = "Список резюме";
 }
@@ -11,9 +12,6 @@
     @if (User.IsInRole("Aspirant"))
     {
         @Html.ActionLink("Создать резюме", "Create", "Sum")        <br />
-        @Html.ActionLink("Показать мои вакансии", "List", "Sum", new { id = User.Identity.GetUserId()}, null)
-        @Html.Raw(" | ")
-        @Html.ActionLink("Показать мои вакансии", "List", "Sum", new { id = "" }, null)
     }
 
 </p>

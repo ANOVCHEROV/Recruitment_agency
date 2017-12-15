@@ -72,6 +72,7 @@ namespace RecAgency.Controllers
             try
             {
                 contact.DateOfPublication = DateTime.Now;
+                contact.IdOfAuthor = User.Identity.GetUserId();
                 crud.updateContact(contact);
                 int i = contact.Id;
                 return RedirectToAction("Details", new { id = i });

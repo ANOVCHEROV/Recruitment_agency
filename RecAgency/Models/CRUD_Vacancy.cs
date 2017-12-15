@@ -46,23 +46,22 @@ namespace RecAgency.Models
 
         public bool updateContact(Vacancy contact)
         {
-            int id = getContact(contact.Id).Id;
+            int id = contact.Id;
             try
             {
-                Vacancy OriginalSum = getContact(contact.Id);
                 var vac =
                      (from c in _entities.Vacancy
                       where c.Id == id
                       select c).First();
-                vac.IdOfAuthor = OriginalSum.IdOfAuthor;
-                vac.Address = OriginalSum.Address;
-                vac.Info = OriginalSum.Info;
-                vac.Experience = OriginalSum.Experience;
-                vac.DateOfPublication= OriginalSum.DateOfPublication;
-                vac.Field = OriginalSum.Field;
-                vac.Name = OriginalSum.Name;
-                vac.Salary = OriginalSum.Salary;
-                vac.Schedule = OriginalSum.Schedule;
+                vac.IdOfAuthor = contact.IdOfAuthor;
+                vac.Address = contact.Address;
+                vac.Info = contact.Info;
+                vac.Experience = contact.Experience;
+                vac.DateOfPublication= contact.DateOfPublication;
+                vac.Field = contact.Field;
+                vac.Name = contact.Name;
+                vac.Salary = contact.Salary;
+                vac.Schedule = contact.Schedule;
                 _entities.SaveChanges();
             }
             catch

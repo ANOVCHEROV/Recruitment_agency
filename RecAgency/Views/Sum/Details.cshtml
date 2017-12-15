@@ -84,7 +84,10 @@
             @Html.ActionLink("Удалить", "Delete", "Sum", new { id = Model.Id }, null)
         }
         <div>
-            @Html.ActionLink("К списку резюме", "List", "Sum")
+            @if (User.IsInRole("Employer"))
+            {
+                @Html.ActionLink("Посмотреть резюме", "List", "Sum")
+            }
         </div>
         <div>
             @Html.ActionLink("К стартовой странице", "Index", "Home")

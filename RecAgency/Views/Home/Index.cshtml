@@ -1,4 +1,6 @@
-﻿@{
+﻿@using System.Web.Security;
+@using Microsoft.AspNet.Identity;
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,4 +8,11 @@
 @Html.ActionLink("Посмотреть вакансии", "List", "Vac")
 <br />
 <br />
-@Html.ActionLink("Посмотреть резюме", "List", "Sum")
+@if (User.IsInRole("Aspirant"))
+{
+    @Html.ActionLink("Мое резюме", "Details", "Sum", new {  id = User.Identity.GetUserId() }, null)
+}
+@if (User.IsInRole("Employer"))
+{
+    @Html.ActionLink("Посмотреть резюме", "List", "Sum")
+}

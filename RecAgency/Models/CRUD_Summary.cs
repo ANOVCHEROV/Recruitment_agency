@@ -22,11 +22,20 @@ namespace RecAgency.Models
                     select c).First();
         }
 
-        public IEnumerable<Summary> getContactOnUser(string id)
+        public Summary getContactOnUser(string id)
         {
-            return (from c in _entities.Summary
-                    where c.IdOfAuthor == id
-                    select c);
+            try
+            {
+                return (from c in _entities.Summary
+                        where c.IdOfAuthor == id
+                        select c).First();
+            }
+            catch
+            {
+                return null;
+            }
+
+
         }
 
         public int addContact(Summary contact)
@@ -45,29 +54,34 @@ namespace RecAgency.Models
 
         public bool updateContact(Summary contact)
         {
-            int id = getContact(contact.Id).Id;
+            
+
+            int id = contact.Id;
             try
             {
-                Summary OriginalSum = getContact(contact.Id);
-                var sum =
-                     (from c in _entities.Summary
-                        where c.Id == id
-                        select c).First();
-                sum.IdOfAuthor = OriginalSum.IdOfAuthor;
-                sum.FIO = OriginalSum.FIO;
-                sum.Info = OriginalSum.Info;
-                sum.Experience = OriginalSum.Experience;
-                sum.DatePublication = OriginalSum.DatePublication;
-                sum.BaseProfession = OriginalSum.BaseProfession;
-                sum.Age = OriginalSum.Age;
-                sum.Sex = OriginalSum.Sex;
+                Summary s =
+                 (from c in _entities.Summary
+                  where c.Id == id
+                  select c).First();
+                s.IdOfAuthor = contact.IdOfAuthor;
+                s.FIO = contact.FIO;
+                s.Info = contact.Info;
+                s.Experience = contact.Experience;
+                s.DatePublication = contact.DatePublication;
+                s.BaseProfession = contact.BaseProfession;
+                s.Age = contact.Age;
+                s.Sex = contact.Sex;
+
                 _entities.SaveChanges();
+
+                return true;
             }
             catch
             {
                 return false;
+
             }
-            return true;
+            
         }
 
 

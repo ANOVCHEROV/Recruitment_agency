@@ -1,4 +1,5 @@
 ﻿@model RecAgency.Models.Summary
+@using Microsoft.AspNet.Identity;
 
 @{
     ViewBag.Title = "Delete";
@@ -55,7 +56,14 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sex)
+            @if (Model.Sex)
+            {
+                @Html.Raw("М");
+            }
+            else
+            {
+                @Html.Raw("Ж");
+            }
         </dd>
 
         <dt>
@@ -76,7 +84,14 @@
         </div>
     }
     <div>
-        @Html.ActionLink("К списку резюме", "List", "Sum")
+        @if (User.IsInRole("Aspirant"))
+        {
+            @Html.ActionLink("Мое резюме", "Details", "Sum", new { id = User.Identity.GetUserId() }, null)
+        }
+        @if (User.IsInRole("Employer"))
+        {
+            @Html.ActionLink("Посмотреть резюме", "List", "Sum")
+        }
     </div>
     <div>
         @Html.ActionLink("К стартовой странице", "Index", "Home")
