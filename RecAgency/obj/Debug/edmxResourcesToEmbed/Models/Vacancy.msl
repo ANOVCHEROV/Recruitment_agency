@@ -14,6 +14,7 @@
           <ScalarProperty Name="Salary" ColumnName="Salary" />
           <ScalarProperty Name="DateOfPublication" ColumnName="DateOfPublication" />
           <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Organization" ColumnName="Organization" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

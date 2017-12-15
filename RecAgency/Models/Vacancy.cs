@@ -24,5 +24,6 @@ namespace RecAgency.Models
         public int Salary { get; set; }
         public System.DateTime DateOfPublication { get; set; }
         public string Info { get; set; }
+        public string Organization { get; set; }
     }
 }

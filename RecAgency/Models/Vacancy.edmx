@@ -19,6 +19,7 @@
           <Property Name="Salary" Type="int" Nullable="false" />
           <Property Name="DateOfPublication" Type="datetime" Nullable="false" />
           <Property Name="Info" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Organization" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Хранилище RAModel1Container">
           <EntitySet Name="Vacancy" EntityType="Self.Vacancy" Schema="dbo" store:Type="Tables" />
@@ -42,6 +43,7 @@
           <Property Name="Salary" Type="Int32" Nullable="false" />
           <Property Name="DateOfPublication" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="RAEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Vacancy" EntityType="Self.Vacancy" />
@@ -65,6 +67,7 @@
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
                 <ScalarProperty Name="DateOfPublication" ColumnName="DateOfPublication" />
                 <ScalarProperty Name="Info" ColumnName="Info" />
+                <ScalarProperty Name="Organization" ColumnName="Organization" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

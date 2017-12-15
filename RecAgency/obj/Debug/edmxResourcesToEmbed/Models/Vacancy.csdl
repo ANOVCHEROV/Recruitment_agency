@@ -14,6 +14,7 @@
     <Property Name="Salary" Type="Int32" Nullable="false" />
     <Property Name="DateOfPublication" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Organization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityContainer Name="RAEntities4" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Vacancy" EntityType="Self.Vacancy" />

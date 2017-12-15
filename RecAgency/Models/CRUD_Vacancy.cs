@@ -62,6 +62,7 @@ namespace RecAgency.Models
                 vac.Name = contact.Name;
                 vac.Salary = contact.Salary;
                 vac.Schedule = contact.Schedule;
+                vac.Organization = contact.Organization;
                 _entities.SaveChanges();
             }
             catch
