@@ -15,6 +15,13 @@ namespace RecAgency.Models
                     select c);
         }
 
+        public IEnumerable<Summary> getContactsByStatus(int id)
+        {
+            return (from c in _entities.Summary
+                    where c.Status == id
+                    select c);
+        }
+
         public Summary getContact(int id)
         {
             return (from c in _entities.Summary
@@ -57,30 +64,58 @@ namespace RecAgency.Models
             
 
             int id = contact.Id;
-            try
-            {
                 Summary s =
                  (from c in _entities.Summary
                   where c.Id == id
                   select c).First();
-                s.IdOfAuthor = contact.IdOfAuthor;
-                s.FIO = contact.FIO;
-                s.Info = contact.Info;
-                s.Experience = contact.Experience;
-                s.DatePublication = contact.DatePublication;
-                s.BaseProfession = contact.BaseProfession;
-                s.Age = contact.Age;
+                if (contact.IdOfAuthor != null)
+                {
+                    s.IdOfAuthor = contact.IdOfAuthor;
+                }
+                if (contact.DatePublication != null)
+                {
+                    s.DatePublication = contact.DatePublication;
+                } 
+                if (contact.FIO != null)
+                {
+                    s.FIO = contact.FIO;
+                }
+                if (contact.Info != null)
+                {
+                    s.Info = contact.Info;
+                }
+                if (contact.Experience != 0)
+                {
+                    s.Experience = contact.Experience;
+                }
+                if (contact.BaseProfession != null)
+                {
+                    s.BaseProfession = contact.BaseProfession;
+                }
+                if (contact.Age != 0)
+                {
+                    s.Age = contact.Age;
+                }
                 s.Sex = contact.Sex;
+                if (contact.Status != 0)
+                {
+                    s.Status = contact.Status;
+                }
+                if (contact.Comment != null)
+                {
+                    s.Comment = contact.Comment;
+                }
+
+
+
+
+
+
 
                 _entities.SaveChanges();
 
                 return true;
-            }
-            catch
-            {
-                return false;
 
-            }
             
         }
 

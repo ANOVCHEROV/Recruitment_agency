@@ -13,6 +13,8 @@
     <Property Name="Age" Type="int" Nullable="false" />
     <Property Name="Sex" Type="bit" Nullable="false" />
     <Property Name="BaseProfession" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="70" />
   </EntityType>
   <EntityContainer Name="Хранилище RAModelContainer">
     <EntitySet Name="Summary" EntityType="Self.Summary" Schema="dbo" store:Type="Tables" />

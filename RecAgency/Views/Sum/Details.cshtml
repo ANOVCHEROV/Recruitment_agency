@@ -9,8 +9,26 @@
 
 <div>
     <hr />
+    
+        @switch (Model.Status)
+        {
+            case 1:
+                <h4>Черновик резюме</h4>
+                break;
+            case 2:
+                <h4>Резюме на рассмотрении</h4>
+                break;
+            case 3:
+                <h4>Отказано в публикации резюме</h4>
+                <br/>
+                @Model.Comment;
+                break;
+            case 4:
+                <h4>Резюме опубликовано</h4>
+                break;
+        }
+    <br/>
     <dl class="dl-horizontal">
-
         <dt>
             @Html.DisplayNameFor(model => model.FIO)
         </dt>
@@ -80,16 +98,21 @@
     <div>
         @if (User.Identity.GetUserId() == Model.IdOfAuthor)
         {
+            if (Model.Status == 1 || Model.Status == 3)
+            {
+                @Html.ActionLink("Отправить на публикацию", "SendForAdmin", "Sum", new { id = Model.Id }, null) <br />
+            }
             @Html.ActionLink("Редактировать", "Edit", "Sum", new { id = Model.Id }, null) <br />
             @Html.ActionLink("Удалить", "Delete", "Sum", new { id = Model.Id }, null)
         }
         <div>
             @if (User.IsInRole("Employer"))
             {
-                @Html.ActionLink("Посмотреть резюме", "List", "Sum")
+            @Html.ActionLink("Посмотреть резюме", "List", "Sum")
             }
         </div>
         <div>
             @Html.ActionLink("К стартовой странице", "Index", "Home")
+        </div>
         </div>
 </p>

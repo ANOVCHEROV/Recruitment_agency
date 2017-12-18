@@ -13,6 +13,8 @@
     <Property Name="Age" Type="Int32" Nullable="false" />
     <Property Name="Sex" Type="Boolean" Nullable="false" />
     <Property Name="BaseProfession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="RAEntities3" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Summary" EntityType="Self.Summary" />

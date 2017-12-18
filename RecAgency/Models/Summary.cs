@@ -23,5 +23,7 @@ namespace RecAgency.Models
         public int Age { get; set; }
         public bool Sex { get; set; }
         public string BaseProfession { get; set; }
+        public int Status { get; set; }
+        public string Comment { get; set; }
     }
 }

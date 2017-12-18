@@ -191,6 +191,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SumController.cs" />
@@ -275,19 +276,19 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\Summary.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Summary.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Summary.edmx.diagram">
-      <DependentUpon>Summary.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\Vacancy.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Vacancy.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\Vacancy.edmx.diagram">
       <DependentUpon>Vacancy.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Summary.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Summary.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Summary.edmx.diagram">
+      <DependentUpon>Summary.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -345,6 +346,9 @@
     <Content Include="Views\Vac\Edit.cshtml" />
     <Content Include="Views\Vac\List.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Admin\SumList.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Refuse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,7 +15,7 @@ namespace RecAgency.Controllers
         {
             if (id == "")
             {
-                return View(crud.getAllContacts());
+                return View(crud.getContactsByStatus(4));
             }
             else
             {
@@ -44,10 +44,19 @@ namespace RecAgency.Controllers
         [HttpPost]
         public ActionResult Create(Summary contact)
         {
-                contact.DatePublication = DateTime.Now;
-                contact.IdOfAuthor = User.Identity.GetUserId();
-                crud.addContact(contact);            
-                return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
+            contact.DatePublication = DateTime.Now;
+            contact.IdOfAuthor = User.Identity.GetUserId();
+            contact.Status = 1;
+            crud.addContact(contact);            
+            return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
+        }
+
+        public ActionResult SendForAdmin(int id)
+        {
+            Summary contact = crud.getContact(id);
+            contact.Status = 2;
+            crud.updateContact(contact);
+            return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
         }
 
         // GET: Sum/Edit/5
@@ -62,6 +71,7 @@ namespace RecAgency.Controllers
         {
             contact.DatePublication = DateTime.Now;
             contact.IdOfAuthor = User.Identity.GetUserId();
+            contact.Status = 2;
             if (crud.updateContact(contact))
             {
                 return RedirectToAction("Details", new { id = User.Identity.GetUserId() });

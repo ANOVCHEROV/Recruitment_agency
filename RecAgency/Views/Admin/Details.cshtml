@@ -1,0 +1,90 @@
+﻿@model RecAgency.Models.Summary
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Summary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatePublication)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatePublication)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sex)
+        </dt>
+
+        <dd>
+                @if (Model.Sex)
+                {
+                    @Html.Raw("М");
+                }
+                else
+                {
+                    @Html.Raw("Ж");
+                }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseProfession)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaseProfession)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Одобрить ", "Submit", "Admin", new { id = Model.Id }, null) ||
+    @Html.ActionLink(" Отказать", "Refuse", "Admin", new { id = Model.Id }, null)<br/>
+    @Html.ActionLink("К списку", "SumList", "Admin")
+</p>

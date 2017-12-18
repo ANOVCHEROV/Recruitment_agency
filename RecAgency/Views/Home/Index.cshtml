@@ -5,8 +5,11 @@
 }
 
 <h3>Добро пожаловать на сайт кадровго агентства!</h3>
-@Html.ActionLink("Посмотреть вакансии", "List", "Vac")
-<br />
+@if (!User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Посмотреть вакансии", "List", "Vac")
+}
+
 <br />
 @if (User.IsInRole("Aspirant"))
 {
@@ -15,4 +18,8 @@
 @if (User.IsInRole("Employer"))
 {
     @Html.ActionLink("Посмотреть резюме", "List", "Sum")
+}
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Посмотреть резюме", "SumList", "Admin")
 }
