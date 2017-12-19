@@ -47,17 +47,11 @@ namespace RecAgency.Controllers
         [Authorize(Roles = "Employer")]
         public ActionResult Create(Vacancy contact)
         {
-            try
-            {
-                contact.DateOfPublication = DateTime.Now;
+            Log.For(this).Info("User " + User.Identity.GetUserId() + " created a vacancy " + contact.Id);
+            contact.DateOfPublication = DateTime.Now;
                 contact.IdOfAuthor = User.Identity.GetUserId();
                 int i = crud.addContact(contact);
                 return RedirectToAction("Details", new { id = i });
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         // GET: Vac/Edit/5
@@ -77,18 +71,12 @@ namespace RecAgency.Controllers
         [Authorize(Roles = "Employer")]
         public ActionResult Edit(Vacancy contact)
         {
-            try
-            {
-                contact.DateOfPublication = DateTime.Now;
+            Log.For(this).Info("User " + User.Identity.GetUserId() + " editted his vacancy " + contact.Id);
+            contact.DateOfPublication = DateTime.Now;
                 contact.IdOfAuthor = User.Identity.GetUserId();
                 crud.updateContact(contact);
                 int i = contact.Id;
                 return RedirectToAction("Details", new { id = i });
-            }
-            catch
-            {
-                return View();
-            }
         }
         [Authorize(Roles = "Employer")]
         public ActionResult Delete(int id)
@@ -100,15 +88,9 @@ namespace RecAgency.Controllers
         [Authorize(Roles = "Employer")]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            try
-            {
-                crud.removeContact(id);
+            Log.For(this).Info("User " + User.Identity.GetUserId() + " deleted his vacancy " + id);
+            crud.removeContact(id);
                 return RedirectToAction("List");
-            }
-            catch
-            {
-                return View();
-            }
         }
 
         public ActionResult VacFilter()
@@ -119,6 +101,7 @@ namespace RecAgency.Controllers
         [HttpPost]
         public ActionResult VacFilter(VacFilter filter)
         {
+
             Filters filters = new Filters();
             List<Vacancy> vacs = new List<Vacancy>();
             if (filter.Salary != 0 && filter.KeyWords != null)

@@ -7,11 +7,10 @@
 
 <h3>Вы уверены, что хотите удалить эту запись?</h3>
 <div>
-    <h4>Vacancy</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            Заголовок
         </dt>
 
         <dd>
@@ -19,7 +18,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Field)
+            Область деятельности 
         </dt>
 
         <dd>
@@ -27,7 +26,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Schedule)
+            Занятость
         </dt>
 
         <dd>
@@ -35,7 +34,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Experience)
+            Опыт
         </dt>
 
         <dd>
@@ -43,7 +42,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Address)
+            Адрес 
         </dt>
 
         <dd>
@@ -51,7 +50,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Salary)
+           Зарплата
         </dt>
 
         <dd>
@@ -59,7 +58,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateOfPublication)
+            Дата последнего редактирования
         </dt>
 
         <dd>
@@ -67,7 +66,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Info)
+            Информация
         </dt>
 
         <dd>
@@ -75,7 +74,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Organization)
+            Название организации
         </dt>
 
         <dd>
@@ -88,7 +87,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
             <div>
                 @Html.ActionLink("Назад к списку вакасий", "List", "Vac")
             </div>

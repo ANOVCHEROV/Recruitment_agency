@@ -30,7 +30,9 @@
         </div>
     </div>
     <div class="form-group">
-        Кто вы?
+        <div class="control-label col-md-2">
+            @Html.Raw("Кто вы?")
+        </div>
         <div class="col-md-10">
             @Html.DropDownListFor(m => m.SelectedRoleId, Model.RoleItems)
         </div>

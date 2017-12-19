@@ -225,7 +225,6 @@ C:\Users\anderr\Recruitment_agency\RecAgency\bin\ru\Microsoft.Owin.Security.Face
 C:\Users\anderr\Recruitment_agency\RecAgency\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 C:\Users\anderr\Recruitment_agency\RecAgency\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 C:\Users\anderr\Recruitment_agency\RecAgency\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\Users\anderr\Recruitment_agency\RecAgency\obj\Debug\RecAgency.csprojResolveAssemblyReference.cache
 C:\Users\anderr\Recruitment_agency\RecAgency\obj\Debug\RecAgency.dll
 C:\Users\anderr\Recruitment_agency\RecAgency\obj\Debug\RecAgency.pdb
 C:\Users\anderr\Recruitment_agency\RecAgency\bin\NUnit3.TestAdapter.dll
@@ -237,3 +236,6 @@ C:\Users\anderr\Recruitment_agency\RecAgency\bin\Mono.Cecil.Mdb.dll
 C:\Users\anderr\Recruitment_agency\RecAgency\bin\Mono.Cecil.Rocks.dll
 C:\Users\anderr\Recruitment_agency\RecAgency\bin\nunit.framework.dll
 C:\Users\anderr\Recruitment_agency\RecAgency\bin\nunit.framework.xml
+C:\Users\anderr\Recruitment_agency\RecAgency\bin\log4net.dll
+C:\Users\anderr\Recruitment_agency\RecAgency\bin\log4net.xml
+C:\Users\anderr\Recruitment_agency\RecAgency\obj\Debug\RecAgency.csprojResolveAssemblyReference.cache

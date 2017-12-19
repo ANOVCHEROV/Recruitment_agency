@@ -13,12 +13,15 @@ namespace RecAgency.Controllers
         CRUD_Summary crud = new CRUD_Summary();
         public ActionResult List(string id = "")
         {
+            
             if (id == "")
             {
+                Log.For(this).Info("User " + User.Identity.GetUserId() + " arrived to list of summaries");
                 return View(crud.getContactsByStatus(4));
             }
             else
             {
+                Log.For(this).Info("User " + User.Identity.GetUserId() + " opened himself summary");
                 return View(crud.getContactOnUser(id));
             }
         }
@@ -47,7 +50,8 @@ namespace RecAgency.Controllers
             contact.DatePublication = DateTime.Now;
             contact.IdOfAuthor = User.Identity.GetUserId();
             contact.Status = 1;
-            crud.addContact(contact);            
+            crud.addContact(contact);
+            Log.For(this).Info("User " + User.Identity.GetUserId() + " created draft of summary");
             return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
         }
 
@@ -56,6 +60,7 @@ namespace RecAgency.Controllers
             Summary contact = crud.getContact(id);
             contact.Status = 2;
             crud.updateContact(contact);
+            Log.For(this).Info("User " + User.Identity.GetUserId() + " sent draft for admin");
             return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
         }
 
@@ -71,16 +76,10 @@ namespace RecAgency.Controllers
         {
             contact.DatePublication = DateTime.Now;
             contact.IdOfAuthor = User.Identity.GetUserId();
-            contact.Status = 2;
-            if (crud.updateContact(contact))
-            {
-                return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
-            }
-            else
-            {
-                return RedirectToAction("Error", "Home", new { error = contact.IdOfAuthor});
-            }
-                
+            contact.Status = 1;
+            crud.updateContact(contact);
+            Log.For(this).Info("User " + User.Identity.GetUserId() + " editted his summary");
+            return RedirectToAction("Details", new { id = User.Identity.GetUserId() });
         }
 
         public ActionResult Delete(int id)
@@ -94,6 +93,7 @@ namespace RecAgency.Controllers
             try
             {
                 crud.removeContact(id);
+                Log.For(this).Info("User " + User.Identity.GetUserId() + " deleted his summary");
                 return RedirectToAction("Index", "Home");
             }
             catch

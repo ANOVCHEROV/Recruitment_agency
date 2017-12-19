@@ -1,0 +1,42 @@
+2017-12-19 22:05:27,648 RecAgency.Controllers.HomeController.Index INFO  User  arrived to start page
+2017-12-19 22:05:45,737 RecAgency.Controllers.AccountController+<Login>d__11.MoveNext INFO  User login: anovcherov3@mail.ru
+2017-12-19 22:05:50,455 RecAgency.Controllers.HomeController.Index INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 arrived to start page
+2017-12-19 22:06:18,579 RecAgency.Controllers.SumController.Edit INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 editted his summary
+2017-12-19 22:06:20,201 RecAgency.Controllers.SumController.SendForAdmin INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 sent draft for admin
+2017-12-19 22:06:24,383 RecAgency.Controllers.HomeController.Index INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 arrived to start page
+2017-12-19 22:06:36,669 RecAgency.Controllers.HomeController.Index INFO  User  arrived to start page
+2017-12-19 22:06:44,963 RecAgency.Controllers.AccountController+<Login>d__11.MoveNext INFO  User login: anovcherov2@mail.ru
+2017-12-19 22:06:45,042 RecAgency.Controllers.HomeController.Index INFO  User 0bddbccc-5d38-4b53-838c-3f266e9b788c arrived to start page
+2017-12-19 22:06:58,593 RecAgency.Controllers.HomeController.Index INFO  User  arrived to start page
+2017-12-19 22:07:05,992 RecAgency.Controllers.AccountController+<Login>d__11.MoveNext INFO  User login: anovcherov@mail.ru
+2017-12-19 22:07:06,101 RecAgency.Controllers.HomeController.Index INFO  User eeabe388-7f89-4d32-8d80-d3d00629cdbc arrived to start page
+2017-12-19 22:07:17,163 RecAgency.Controllers.AdminController.Details INFO  Admin checked summary: 6
+2017-12-19 22:07:28,065 RecAgency.Controllers.AdminController.Refuse INFO  Admin refused summary: 6 with comment: Переделывай
+2017-12-19 22:07:30,409 RecAgency.Controllers.HomeController.Index INFO  User  arrived to start page
+2017-12-19 22:07:38,522 RecAgency.Controllers.AccountController+<Login>d__11.MoveNext INFO  User login: anovcherov3@mail.ru
+2017-12-19 22:07:38,615 RecAgency.Controllers.HomeController.Index INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 arrived to start page
+2017-12-19 22:07:49,291 RecAgency.Controllers.SumController.Edit INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 editted his summary
+2017-12-19 22:07:50,895 RecAgency.Controllers.SumController.SendForAdmin INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 sent draft for admin
+2017-12-19 22:07:52,226 RecAgency.Controllers.HomeController.Index INFO  User  arrived to start page
+2017-12-19 22:08:00,338 RecAgency.Controllers.AccountController+<Login>d__11.MoveNext INFO  User login: anovcherov@mail.ru
+2017-12-19 22:08:00,458 RecAgency.Controllers.HomeController.Index INFO  User eeabe388-7f89-4d32-8d80-d3d00629cdbc arrived to start page
+2017-12-19 22:08:03,561 RecAgency.Controllers.AdminController.Details INFO  Admin checked summary: 6
+2017-12-19 22:08:04,726 RecAgency.Controllers.AdminController.Submit INFO  Admin submitted summary: 6
+2017-12-19 22:08:06,655 RecAgency.Controllers.HomeController.Index INFO  User  arrived to start page
+2017-12-19 22:13:51,916 RecAgency.Controllers.HomeController.Index INFO  User  arrived to start page
+2017-12-19 22:14:19,518 RecAgency.Controllers.AccountController+<Login>d__11.MoveNext INFO  User login: anovcherov3@mail.ru
+2017-12-19 22:14:22,778 RecAgency.Controllers.HomeController.Index INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 arrived to start page
+2017-12-19 22:14:30,570 RecAgency.Controllers.SumController.Edit INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 editted his summary
+2017-12-19 22:14:33,489 RecAgency.Controllers.SumController.SendForAdmin INFO  User 32ab914e-1afe-47b7-a396-646c4beb3844 sent draft for admin
+2017-12-19 22:14:35,727 RecAgency.Controllers.HomeController.Index INFO  User  arrived to start page
+2017-12-19 22:14:43,519 RecAgency.Controllers.AccountController+<Login>d__11.MoveNext INFO  User login: anovcherov@mail.ru
+2017-12-19 22:14:43,579 RecAgency.Controllers.HomeController.Index INFO  User eeabe388-7f89-4d32-8d80-d3d00629cdbc arrived to start page
+2017-12-19 22:14:54,615 RecAgency.Controllers.AdminController.Details INFO  Admin checked summary: 6
+2017-12-19 22:15:44,232 RecAgency.Controllers.HomeController.Index INFO  User eeabe388-7f89-4d32-8d80-d3d00629cdbc arrived to start page
+2017-12-19 22:15:49,032 RecAgency.Controllers.AdminController.Details INFO  Admin checked summary: 6
+2017-12-19 22:16:41,286 RecAgency.Controllers.HomeController.Index INFO  User eeabe388-7f89-4d32-8d80-d3d00629cdbc arrived to start page
+2017-12-19 22:16:48,339 RecAgency.Controllers.AdminController.Details INFO  Admin checked summary: 6
+2017-12-19 22:19:59,926 RecAgency.Controllers.HomeController.Index INFO  User eeabe388-7f89-4d32-8d80-d3d00629cdbc arrived to start page
+2017-12-19 22:20:05,382 RecAgency.Controllers.AdminController.Details INFO  Admin checked summary: 6
+2017-12-19 22:21:42,059 RecAgency.Controllers.HomeController.Index INFO  User eeabe388-7f89-4d32-8d80-d3d00629cdbc arrived to start page
+2017-12-19 22:21:47,369 RecAgency.Controllers.AdminController.Details INFO  Admin checked summary: 6

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using RecAgency.Models;
+using Microsoft.AspNet.Identity;
 
 namespace RecAgency.Controllers
 {
@@ -11,6 +12,7 @@ namespace RecAgency.Controllers
     {
         public ActionResult Index()
         {
+            Log.For(this).Info("User " + User.Identity.GetUserId() + " arrived to start page");
             return View();
         }
 

@@ -18,7 +18,10 @@ namespace RecAgency.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(crud.getContact(id));
+            var n = crud.getContact(id);
+            Log.For(this).Info("Admin checked summary: " + n.Id);
+            return View(n);
+
         }
 
         public ActionResult Submit(int id)
@@ -26,6 +29,7 @@ namespace RecAgency.Controllers
             Summary contact = crud.getContact(id);
             contact.Status = 4;
             crud.updateContact(contact);
+            Log.For(this).Info("Admin submitted summary: " + contact.Id);
             return RedirectToAction("SumList", new { id = 1 });
         }
 
@@ -39,15 +43,9 @@ namespace RecAgency.Controllers
         public ActionResult Refuse(Summary contact)
         {
             contact.Status = 3;
-            try
-            {
-                crud.updateContact(contact);
-                return RedirectToAction("SumList");
-            }
-            catch(Exception ex)
-            {
-                return RedirectToAction("Error", "Home", new { error = ex.Message });
-            }
+            Log.For(this).Info("Admin refused summary: " + contact.Id + " with comment: " + contact.Comment);
+            crud.updateContact(contact);
+            return RedirectToAction("SumList");
         }
     }
 }
