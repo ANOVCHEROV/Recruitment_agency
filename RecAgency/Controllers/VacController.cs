@@ -12,11 +12,19 @@ namespace RecAgency.Controllers
     {
         CRUD_Vacancy crud = new CRUD_Vacancy();
         // GET: Vac
-        public ActionResult List(string id = "")
+        public ActionResult List(string id = "", List<Vacancy> vacs = null)
         {
             if (id == "")
             {
-                return View(crud.getAllContacts());
+                if (vacs != null)
+                {
+                    return View(vacs);
+                }
+                else
+                {
+                    return View(crud.getAllContacts());
+                }
+                
             }
             else
             {
@@ -102,5 +110,34 @@ namespace RecAgency.Controllers
                 return View();
             }
         }
+
+        public ActionResult VacFilter()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult VacFilter(VacFilter filter)
+        {
+            Filters filters = new Filters();
+            List<Vacancy> vacs = new List<Vacancy>();
+            if (filter.Salary != 0 && filter.KeyWords != null)
+            {
+                vacs = filters.ForKeyWords(filters.ForSalary(crud.getAllContacts(), filter.Salary), filter.KeyWords).ToList();
+            }
+            else
+            {
+                if (filter.Salary != 0)
+                {
+                    vacs = filters.ForSalary(crud.getAllContacts(), filter.Salary).ToList();
+                }
+                if (filter.KeyWords != null)
+                {
+                    vacs = filters.ForKeyWords(crud.getAllContacts(), filter.KeyWords).ToList();
+                }
+            }
+            return View("List", vacs);
+        }
+
     }
 }

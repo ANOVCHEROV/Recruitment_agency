@@ -15,6 +15,7 @@
         @Html.Raw(" | ")
         @Html.ActionLink("Показать мои вакансии", "List", "Vac", new { id = User.Identity.GetUserId() }, null)
     }
+    @Html.ActionLink("Фильтры", "VacFilter", "Vac")
 
 
 </p>
